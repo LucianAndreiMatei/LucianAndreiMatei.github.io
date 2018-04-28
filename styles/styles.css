@@ -1,0 +1,536 @@
+@font-face {
+    font-family: 'Calibri Light Custom';
+    src: url('../fonts/calibril.ttf') format('truetype'), url('../fonts/calibril.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Museo Sans Custom';
+    src: url('../fonts/MUSEOSANS-300.OTF') format('opentype');
+}
+
+body {
+    margin: 0;
+    font-family: 'Calibri Light Custom', Fallback, sans-serif;
+    ;
+    max-width: 100vw;
+}
+
+.active {
+    color: crimson;
+}
+
+.header {
+    padding: 1px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .14), 0 6px 6px rgba(0, 0, 0, .28);
+    z-index: 10100;
+}
+
+.animationClass {
+    animation: shadowThrob 0.9s;
+    animation-direction: alternate;
+    -webkit-animation: shadowThrob 0.9s ease-out;
+    -webkit-animation-direction: alternate;
+}
+
+@keyframes shadowThrob {
+    from {
+        text-shadow: 0 0 20px rgba(190, 65, 12, 0.9), 0 0 100px rgba(190, 65, 12, 0.9);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(190, 65, 12, 0.9), 0 0 100px rgba(190, 65, 12, 0.9);
+    }
+}
+
+@-webkit-keyframes shadowThrob {
+    from {
+        text-shadow: 0 0 20px rgba(190, 65, 12, 0.9), 0 0 100px rgba(190, 65, 12, 0.9);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(190, 65, 12, 0.9), 0 0 100px rgba(190, 65, 12, 0.9);
+    }
+}
+
+.content {
+    width: 100%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.content {
+    padding-top: 102px;
+}
+
+.flex-container {
+    display: grid;
+    justify-content: center;
+}
+
+.content-container {
+    justify-content: center;
+}
+
+.image-container {
+    display: grid;
+}
+
+.menu-big-area {
+    display: flex;
+    justify-content: center;
+    flex: 2 0 0;
+    flex-wrap: wrap;
+}
+
+.menu-small-area-left {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: center;
+}
+
+.menu-small-area-right {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: center;
+}
+
+a.fa.language {
+    font-family: 'Calibri Light Custom';
+    font-size: 19px;
+    width: 21px;
+}
+
+a.fa {
+    padding: 6px;
+    font-size: 20px;
+    width: 19px;
+    text-align: center;
+    text-decoration: none;
+    margin: 14px 2px;
+    border-radius: 50%;
+    border: solid 1px black;
+    color: black;
+}
+
+.mnemo-menu-item {
+    padding: 0px 37px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.mnemo-menu-item :hover {
+    color: crimson;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.biennale-logo {
+    height: 100px;
+    width: 100px;
+    padding: 7px 30px 7px 0px;
+}
+
+#main-autoplay-video {
+    position: relative;
+    z-index: 10000;
+}
+
+#menu-logo {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-content {
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+}
+
+.text-container {
+    max-width: 900px;
+}
+
+.text-container h3 {
+    color: crimson;
+    font-weight: bold;
+}
+
+.article {
+    /* padding: 10px; */
+}
+
+.article-text.collapsed {
+    max-height: 240px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.article-text {
+    max-height: none;
+    margin-bottom: 10px;
+}
+
+.article-title {
+    color: crimson;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+a.read-more {
+    float: left;
+    color: crimson;
+    padding-bottom: 50px;
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+a.read-more:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a.read-less {
+    float: left;
+    color: crimson;
+    padding-bottom: 50px;
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+a.read-less:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-col {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+#video-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+    background-clip: content-box;
+}
+
+#video-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+
+#video-scroll::-webkit-scrollbar:hover {
+    cursor: pointer;
+}
+
+#video-scroll::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+.video-grid-item {
+    padding: 1px;
+    position: relative;
+}
+
+.video-grid-item:hover {
+    cursor: pointer;
+}
+
+#video-player {
+    cursor: pointer;
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 400px) {
+    .flex-grid {
+        display: block;
+    }
+}
+
+/* 
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    16:9
+    padding-top: 25px;
+    height: 100%;
+} */
+
+/* 
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+iframe {
+    width: calc(100vw - 20px);
+    height: calc(100vw/1.77);
+}
+
+/* video play overlay below */
+
+.image-container {
+    position: relative;
+}
+
+.image-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 4px);
+    display: none;
+    color: #FFF;
+}
+
+.image-container:hover .after.video-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .3);
+}
+
+.image-container .playing {
+    display: none;
+}
+
+.image-container .playing.video-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 4px);
+    display: none;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .1);
+    cursor: default;
+}
+
+.image-container:hover .playing.video-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 4px);
+    display: none;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .1);
+    cursor: default;
+}
+
+.fa.fa-play-circle {
+    font-size: 3em;
+}
+
+.main-logo-container {
+    max-height: 350px;
+    width: 100%;
+}
+
+.main-logo-image {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+}
+
+.content-video {
+    max-width: 897px;
+    height: auto;
+}
+
+.content-image {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+
+#social-media-links-container {
+    padding-right: 10px;
+}
+
+@media (max-width: 1024px) {
+    .content-image {
+        display: block;
+        height: auto;
+    }
+    .content-video {
+        width: 100vw;
+        height: 38vw;
+    }
+}
+
+.paragraph {
+    font-size: 22px;
+    padding: 50px 0px 50px 0px;
+}
+
+.paragraph-no-padding {
+    font-size: 22px;
+    padding: 0;
+}
+
+@media (max-width: 1024px) {
+    .paragraph {
+        padding: 50px 20px 50px 20px;
+    }
+    .paragraph-no-padding {
+        padding: 0px 20px 0px 20px;
+    }
+}
+
+#motto-container {
+    padding: 0px 20px 0px 20px;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .main-logo-image {
+        padding-top: 40px;
+    }
+}
+
+input,
+textarea,
+button,
+select,
+div,
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.section-bottom-padding {
+    padding-bottom: 100px;
+}
+
+.fancy-subtitle-container {
+    padding: 50px 0px 50px 0px;
+}
+
+p.fancy-subtitle {
+    font-size: 40px;
+    font-family: "Museo Sans Custom";
+    letter-spacing: 3px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    line-height: 0;
+}
+
+p.fancy-subtitle span {
+    background: #fff;
+    padding: 0 15px;
+}
+
+.bx-wrapper {
+    webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.partner-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: 400px 500px;
+}
+
+.team-container ul {
+    list-style-type: none;
+    font-size: 22px;
+    -webkit-padding-start: 40px;
+}
+
+.left-margin-40 {
+    margin-left: -40px;
+}
+
+.video-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+    font-size: 50px;
+    font-family: "Museo Sans Custom";
+    letter-spacing: 12px;
+}
+
+.article-reference {
+    color: crimson;
+}
+
+.article-reference:hover {
+    font-weight: bold;
+}
+
+.subtitle {
+    font-family: "Museo Sans Custom";
+    font-size: 30px;
+}
+
+#language-container {
+    display: flex;
+    align-items: center;
+}
+
+#vertical-line {
+    border-left: thin solid black;
+    height: 30px;
+    margin: 0px 5px 0px 5px;
+}
+
+#social-media-links-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+#myHeader {
+    display: none;
+}
+
+.team-members-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.team-member {
+    height: 150px;
+}

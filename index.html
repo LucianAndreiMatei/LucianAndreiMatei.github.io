@@ -1,10 +1,552 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-	<title>
-		Hello world!
-	</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="styles/slider.css" rel="stylesheet" type="text/css">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="assets/favicon_mare.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <style>
+        .Navbar {
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            font-family: "Calibri Light Custom";
+            color: white;
+        }
+
+        .Navbar__Items {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .navbar-item {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            padding: 0px 20px 0px 20px;
+            font-family: "Museo Sans Custom";
+            font-size: 16px;
+            letter-spacing: 3px;
+        }
+
+        .Navbar__Link {
+            padding-right: 8px;
+        }
+
+        .Navbar__Link-toggle {
+            color: black;
+            display: none;
+        }
+
+        .Navbar__Items--right {
+            margin-left: auto;
+        }
+
+        .Navbar__Link-brand {
+            display: flex;
+            padding: 0px 20px 0px 20px;
+            margin-right: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .Navbar__Items,
+            .Navbar {
+                flex-direction: column;
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .Navbar__Items {
+                display: none;
+                grid-column: span 4;
+            }
+            .Navbar__Link-toggle {
+                display: grid;
+                align-items: center;
+                padding-left: 10px;
+                cursor: pointer;
+                grid-column: span 1;
+            }
+            .Navbar__Items--right {
+                margin-left: 10px;
+                grid-column: span 4;
+            }
+            .Navbar__Link-brand {
+                margin-left: auto;
+                margin-right: unset;
+                grid-column: span 3;
+            }
+            .Navbar__ToggleShow {
+                display: flex;
+            }
+        }
+
+        .fa.fa-bars {
+            font-size: 36px;
+        }
+    </style>
+    <title>MNEMONICS</title>
 </head>
+
 <body>
-	<p>Hello world!</p>
+    <div class="flex-container">
+
+        <div class="header Navbar sticky" id="myHeader">
+            <div class="Navbar__Link Navbar__Link-toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="Navbar__Link Navbar__Link-brand">
+                <div id="menu-logo">
+                    <img src="assets/MNEMONICS_small_logo.png" height="63">
+                </div>
+            </div>
+            <div class="Navbar__Items">
+                <div class="navbar-item">
+                    <a id="manifest-section-link" href="#manifest-section">
+                        <h2 lang="en">MANIFEST</h2>
+                        <h2 lang="ro">MANIFEST</h2>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a id="exhibition-section-link" href="#exhibition-section">
+                        <h2 lang="en">EXHIBITION</h2>
+                        <h2 lang="ro">EXPOZITIE</h2>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a id="voices-section-link" href="#voices-section">
+                        <h2 lang="en">VOICES</h2>
+                        <h2 lang="ro">VOCI</h2>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a id="initiatives-section-link" href="#initiatives-section">
+                        <h2 lang="en">INITIATIVES</h2>
+                        <h2 lang="ro">INITIATIVE</h2>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a id="organizers-section-link" href="#organizers-section">
+                        <h2 lang="en">ORGANIZERS</h2>
+                        <h2 lang="ro">ORGANIZATORI</h2>
+                    </a>
+                </div>
+            </div>
+
+            <div class="Navbar__Items Navbar__Items--right">
+                <div id="social-media-links-container">
+                    <div id="social-media-links">
+                        <a href="https://www.facebook.com/mnemonicsromania" target="_blank" class="fa fa-facebook"></a>
+                        <a href="https://www.facebook.com/mnemonicsromania" target="_blank" class="fa fa-youtube"></a>
+                        <!-- <a href="http://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+                    <a href="http://www.pinterest.com" target="_blank" class="fa fa-pinterest"></a> -->
+                    </div>
+                    <div id="language-container">
+                        <div id="vertical-line"></div>
+                        <a href="#" id="english" class="language fa">EN</a>
+                        <a href="#" id="romana" class="language fa">RO</a>
+                    </div>
+                </div>
+                <img src="assets/bienala.png" class="biennale-logo">
+            </div>
+        </div>
+    </div>
+
+    <video id="main-autoplay-video" width="100%" height="100%" autoplay loop muted>
+        <source src="assets/MNEMONICS_VIDEO_CONCEPT.mp4" type="video/mp4" /> Your browser does not support the video tag.
+    </video>
+
+    <div class="content-container">
+        <div class="content">
+            <section id="manifest-section" class="section-bottom-padding">
+                <div id="manifest-content" class="section-content">
+                    <div class="text-container">
+                        <div class="fancy-subtitle-container">
+                            <p class="fancy-subtitle">
+                                <span>MANIFEST</span>
+                            </p>
+                        </div>
+
+                        <div class="paragraph">
+                            Mnemonics appeals to the ancient technique of collecting memories – ars memoriae, based on the connection between thoughts
+                            and a visual support invested with meaning, which is impossible to forget. The ability of space
+                            to generate strong memories is the ultimate challenge of architecture and helps endlessly access
+                            and re-access the emotions related to a specific story.
+                        </div>
+                        <div class="flex-container">
+                            <img src="assets/Manifesto/section-1-freespace.jpg" class="content-image" />
+                        </div>
+                        <div class="paragraph">
+                            We reflect on different moments of a space that is representative for the universe of the Romanian urban environment. During
+                            the second part of the XXth century most cities in Romania have gone through an accelerated process
+                            of urbanization. This generated an interstitial space of the urban fabric which was soon reclaimed
+                            by the people who lived in its proximity, partly because it was not a priority of urban integration
+                            processes.
+                            <br> In the collective memory of generations of the past few decades, this paints a common imaginarium,
+                            generated by the evolution of free urbanism, which provided the inhabitants of a city with a
+                            free space unclaimed by anyone but which actually belongs to everyone.
+
+                        </div>
+                        <div class="flex-container">
+                            <img src="assets/Manifesto/section-1-collage.jpg" class="content-image" />
+                        </div>
+                        <div class="paragraph">
+                            In Romania, the universal icon of the space between apartment buildings is the image of kids playing outside under the eyes
+                            of their parents and grandparents, freely creating invisible worlds in an empty space. The way
+                            humans evolve from being a child to being an adult is a fascinating life cycle from which architecture
+                            and urbanism are constantly learning, as this is a space of infinite possibility. Mnemonics investigates
+                            territories of freedom of intention, outlining a generous space, only made possible by the absence
+                            of rules - for the kids of the past few decades in Romania, this is a strong piece of collective
+                            memory - it puts together friends, games, mishaps, stories, the staircase hallway.
+                        </div>
+                        <div class="flex-container">
+                            <img src="assets/Manifesto/section-1-los-ninos.jpg" class="content-image" />
+                        </div>
+                        <div class="paragraph">
+                            The key hanging down their necks remains both a symbol of independence and a reminder of a single responsabilty.
+                            <br> The creativity of play and the limitlessness of human imagination offer us the chance to understand
+                            the way in which the places we hold dear to our souls have the power to take ideas further, connecting
+                            to the generations to come, to new cultures and to new communities. The space between the apartment
+                            buildings of cities in Romania is getting contemporary reactions at an architectural level, community
+                            level and educational level, as a promise for a future of the public space and the way it can
+                            be used.
+                        </div>
+                        <div class="flex-container">
+                            <img src="assets/Manifesto/section-1-girl.jpg" class="content-image" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="exhibition-section" class="section-bottom-padding">
+                <!-- <video id="main-autoplay-video" width="100%" height="100%" autoplay loop muted>
+                    <source src="assets/video001.mp4" type="video/mp4" /> Your browser does not support the video tag.
+                </video> -->
+
+                <div class="video-container">
+                    <div id="main-autoplay-video" width="100%" height="100%">
+                        <img src="assets/Exhibition/video-placeholder.jpg" class="content-image" />
+                    </div>
+                    <div class="centered">EXHIBITION</div>
+                </div>
+                <div id="exhibition-content" class="section-content">
+                    <div class="text-container">
+                        <div class="fancy-subtitle-container">
+                            <p class="fancy-subtitle">
+                                <span>CENTRAL PAVILLION</span>
+                            </p>
+                        </div>
+
+                        <div class="slider">
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-02.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-03.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-04.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-05.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-06.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-07.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-08.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-09.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-10.jpg" />
+                            <img data-u="image" src="assets/Exhibition/Website Mnemonics 0504-11.jpg" />
+                        </div>
+
+                        <div class="article">
+                            <div class="article-text">
+                                <div class="paragraph">
+                                    The proposals for Romania’s Pavilion in Giardini della Biennale and the New Gallery of the Romanian Institute of Culture
+                                    and Humanistic Research (RICHR) in Venice are the two components of the Mnemonics concept.
+                                    This evokes an essentialized scenography of the free space between the apartment buildings
+                                    in the cities of Romania.
+                                    <br> The installation in Giardini della Biennale uses props specific to the environment described
+                                    above in order to invite everyone to exchange roles on the playground, to interact and
+                                    reflect over the effects of the appropriation of a common space by communities.
+                                </div>
+                            </div>
+
+                            <a href="" class="read-more">Read more</a>
+                            <a href="" class="read-less">Less</a>
+                        </div>
+
+                        <div class="fancy-subtitle-container">
+                            <p class="fancy-subtitle">
+                                <span>ICR GALLERY</span>
+                            </p>
+                        </div>
+
+                        <div class="slider">
+                            <img data-u="image" src="assets/Exhibition/ICR GALLERY/01_Plan galerie.jpg" />
+                            <img data-u="image" src="assets/Exhibition/ICR GALLERY/02_Sectiune longitudinala galerie.jpg" />
+                            <img data-u="image" src="assets/Exhibition/ICR GALLERY/03_Axonometrie galerie.jpg" />
+                            <img data-u="image" src="assets/Exhibition/ICR GALLERY/04_Intrare galerie.jpg" />
+                        </div>
+
+                        <div class="paragraph">
+                            Today the image of the space between apartment buildings is familiar, comfortable and precious, because it was a space where
+                            curiosity, creativity and freedom of improvisation manifested themselves. We thus all tend to
+                            remember it as the last stable configuration we've known - our childhood.
+                            <br> The way humans evolve from being a child, interested in playing to being an adult, interested
+                            in themselves and the people around, is a fascinating lifecycle from which architecture and urbanism,
+                            together with its adjacent disciplines (art, sociology, antropology, history etc.) is constantly
+                            learning, as this is a space of infinite possibility.
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="voices-section" class="section-bottom-padding">
+                <!-- <video id="main-autoplay-video" width="100%" height="100%" autoplay loop muted>
+                    <source src="assets/video002.mp4" type="video/mp4" /> Your browser does not support the video tag.
+                </video> -->
+                <div class="video-container">
+                    <div id="main-autoplay-video" width="100%" height="100%">
+                        <img src="assets/Voices/video-placeholder.jpg" class="content-image" />
+                    </div>
+                    <div class="centered">VOICES</div>
+                </div>
+                <div id="voices-content" class="section-content">
+                    <div class="text-container">
+                        <div class="fancy-subtitle-container">
+                            <p class="fancy-subtitle">
+                                <span>VOICES</span>
+                            </p>
+                        </div>
+
+                        <div class="paragraph-no-padding">
+                            Since every piece of history can eventually find its voices, Mnemonics proposes a multidisciplinary approach by inviting
+                            various professionals to address the topic in their own manner, talking from the very personal
+                            point of view of the child who knew this decorum and grew to learn from it.
+                        </div>
+
+                        <h1 class="subtitle">Șerban Țigănaș</h1>
+
+                        <div class="flex-container">
+                            <video src="assets/Voices/Interviu Tiganas - YouTube.mp4" class="content-image" controls/>
+                        </div>
+
+                        <h1 class="subtitle">Vintilă Mihăilescu</h1>
+
+                        <div class="article">
+                            <div class="article-text">
+                                <div class="paragraph-no-padding">
+                                    Today the image of the space between apartment buildings is familiar, comfortable and precious, because it was a space where
+                                    curiousity, creativity and freedom of improvisation manifested themselves. We thus all
+                                    tend to remember it as the last stable configuration we've known - our childhood.
+                                    <br> The way humans evolve from being a child, interested in playing to being an adult, interested
+                                    in themselves and the people around, is a fascinating lifecycle from which architecture
+                                    and urbanism, together with its adjacent disciplines (art, sociology, antropology, history
+                                    etc.) is constantly learning, as this is a space of infinite possibility.
+                                    <br> The creativity of play and the limitlessness of human imagination offer us the chance,
+                                    over time, to understand the way in which the places we hold dear to our souls have the
+                                    power to take ideas further, connecting to the generations to come, to new cultures and
+                                    to new communities.
+                                    <br> The space between the apartment buildings of cities in Romania is getting contemporary
+                                    reactions at
+                                </div>
+                            </div>
+
+                            <a href="" class="read-more ">Read more</a>
+                            <a href="" class="read-less">Less</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="initiatives-section" class="section-bottom-padding">
+                <div class="video-container">
+                    <video id="main-autoplay-video" width="100%" height="100%" autoplay loop muted>
+                        <source src="assets/Initiatives/initiatives.mp4" type="video/mp4" /> Your browser does not support the video tag.
+                    </video>
+                    <div class="centered">INITIATIVES</div>
+                </div>
+                <div id="initiatives-content" class="section-content">
+                    <div class="text-container">
+                        <div class="fancy-subtitle-container">
+                            <p class="fancy-subtitle">
+                                <span>INITIATIVES</span>
+                            </p>
+                        </div>
+
+                        <div class="paragraph">
+                            While collective memories manage to define a territory for present generations, the essence of Mnemonics consists of an optimistic
+                            vision over the space between the apartment buildings in the cities of Romania, waiting for a
+                            contemporary push to the future.
+                            <br> Mnemonics invites the most active independent initiatives in Romania to present their contemporary
+                            take on the message since they have been developing many projects in the country engaging various
+                            communities.
+                        </div>
+
+                        <h1 class="subtitle">De-A Arhitectura</h1>
+
+                        <div class="flex-container">
+                            <video src="assets/Initiatives/initiatives.mp4" class="content-image" controls/>
+                        </div>
+
+                        <div class="paragraph">
+                            A strong association which became national by creating an alternative curriculum for schools, promoting civic engagement
+                            through architecture and urbanism education for children. Its major mission is to enrich the
+                            culture of the current society by helping children understand the complex processes which transform
+                            the places they live in. Since children shape their parents’ views, this project aims at a high
+                            level of communication and participation.
+                        </div>
+
+                        <h1 class="subtitle">Grupul de inițiativă Civică (Cișmigiu Civic Initiative Group)</h1>
+
+                        <div class="paragraph">
+                            The group aims at building active and responsible communities around the neighborhood by creating a friendly framework for
+                            setting common goals and developing various projects to benefit the people. With its identity
+                            element remaining Cismigiu Garden in Bucharest, the very participatory character becomes a challenge
+                            and brings citizens closer.
+                            <p>
+                                For more information:
+                                <a href="https://www.facebook.com/Cismi.Civic/" class="article-reference">Cismi Civic</a>
+                            </p>
+                        </div>
+
+
+                        <h1 class="subtitle">CeRe – Centrul de Resurse pentru Participare Publică (Resource Centre for Public Participation)</h1>
+
+                        <div class="paragraph">
+                            The Centre was born in Bucharest due to the strong belief that public participation and civic engagement can set a democratic
+                            and transparent method in decision making. Its main mission is to assist present and future NGOs
+                            and institutions in dealing with communities, public projects, private initiatives, citizen involvement,
+                            communication and every process meant for the space we all live in.
+                            <p>
+                                For more information:
+                                <a href="https://www.ce-re.ro/home" class="article-reference">CeRe</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="organizers-section" class="section-bottom-padding">
+                <div class="video-container">
+                    <video id="main-autoplay-video" width="100%" height="100%" autoplay loop muted>
+                        <source src="assets/video004.mp4" type="video/mp4" /> Your browser does not support the video tag.
+                    </video>
+                    <div class="centered">ORGANIZERS</div>
+                </div>
+                <div id="organizers-content" class="section-content">
+                    <div class="text-container">
+                        <div class="fancy-subtitle-container">
+                            <p class="fancy-subtitle">
+                                <span>ORGANIZERS</span>
+                            </p>
+                        </div>
+
+                        <h1 class="subtitle">Biennale commissioner</h1>
+
+                        <div class="paragraph">
+                            Attila Kim is an architect with extensive experience in architectural design exhibition architecture, cultural event design
+                            and restoration, being nominated three times for the European Union Prize for Contemporary Architecture
+                            - Mies van der Rohe Award (2009, 2011, 2017) and for the Iacov Chernikhov contemporary architecture
+                            award.
+                        </div>
+
+                        <h1 class="subtitle">Institutional members</h1>
+
+                        <div class="paragraph">
+                            The organizers of Romania's participation in the 16 Mostra Internazionale di Architettura - La Biennale di Venezia are the
+                            Ministry of Culture and National Identity, the Ministry of Foreign Affairs, the Romanian Cultural
+                            Institute and the Union of Architects in Romania.
+                        </div>
+
+
+                        <div class="partner-logos">
+                            <img src="assets/01 MC.png" height="250" />
+                            <img src="assets/02 MAE.png" height="100" />
+                            <img src="assets/03 ICR.png" height="100" />
+                            <img src="assets/04 UAR.png" height="100" />
+                        </div>
+
+                        <h1 class="subtitle">Mnemonics Team</h1>
+
+
+                        <div class="team-container">
+                            <div>
+                                <ul class="left-margin-40">
+                                    <li>The project has been created and</li>
+                                    <li>developed by a multi-disciplinary team of</li>
+                                    <li>architects and visual artists:</li>
+                                    <li>
+                                        <br>
+                                        <br>
+                                    </li>
+                                    <li>Romeo CUC (coordinator),</li>
+                                    <li>Mihai GHEORGHE (art director),</li>
+                                    <li>Irina Petra GUDANĂ (communication),</li>
+                                    <li>Roxana POP (graphic design),</li>
+                                    <li>Raluca SABĂU (design),</li>
+                                    <li>Vlad TOMEI (copywriting).</li>
+                                </ul>
+                            </div>
+                            <div class="team-members-container">
+                                <img src="assets/Organizers/RomeoCuc.png" class="team-member" />
+                                <img src="assets/Organizers/RalucaSabau.png" class="team-member" />
+                                <img src="assets/Organizers/RoxanaPop.png" class="team-member" />
+                                <img src="assets/Organizers/IrinaGudana.png" class="team-member" />
+                                <img src="assets/Organizers/MihaiGheorghe.png" class="team-member" />
+                                <img src="assets/Organizers/VladTomei.png" class="team-member" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type='text/javascript' src='scripts/jquery.mousewheel.min.js'></script>
+    <script>
+        var clickedOnNavMenu = false;
+        function classToggle() {
+            const navs = document.querySelectorAll('.Navbar__Items')
+
+            navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+        }
+
+        document.addEventListener("click", function () {
+            const toggledItems = $('.Navbar__ToggleShow');
+
+            if (!clickedOnNavMenu && toggledItems && toggledItems.length > 0) {
+                classToggle();
+            } else {
+                clickedOnNavMenu = false;
+            }
+        });
+        document.querySelector('.Navbar__Link-toggle')
+            .addEventListener('click', function () {
+                clickedOnNavMenu = true;
+                classToggle();
+            });
+
+    </script>
+    <script>
+        window.onload = function () { myFunction() }
+        window.onscroll = function () { myFunction() };
+        window.onresize = function () { myFunction() };
+
+        var mainVideo = document.getElementById("main-autoplay-video");
+
+        function myFunction() {
+            if (window.outerWidth <= 1024 || window.pageYOffset >= mainVideo.offsetHeight) {
+                $('#myHeader').fadeIn().css("display", "grid");
+            } else {
+                $('#myHeader').fadeOut();
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slider').bxSlider();
+        });
+    </script>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/slider.js"></script>
+    <script src="scripts/articles.js"></script>
+    <script src="scripts/languages.js"></script>
+    <script src="scripts/videos.js"></script>
+    <script src="scripts/menu-highlight.js"></script>
 </body>
+
 </html>
